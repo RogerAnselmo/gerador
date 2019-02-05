@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Core.Infra.Data.Entidade.Tabela>
+@{ 
+    Layout = null;
+}
+<table class="table table-hover jambo_table">
+    <tr>       
+        <th>
+            @Html.DisplayNameFor(model => model.Coluna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoDado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tamanho)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NaoNulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Escala)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comentario)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Coluna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamanho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NaoNulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Escala)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+        </tr>
+    }
+
+</table>

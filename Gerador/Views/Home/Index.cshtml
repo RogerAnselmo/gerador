@@ -1,0 +1,92 @@
+﻿@model Core.Infra.Data.Entidade.Tabela
+<script src="~/CoreJs/Tabela/Tabela.js"></script>
+
+@{
+    ViewBag.Title = "Gerador";
+}
+
+
+<div class="form-horizontal">
+    <h2>Nome do Schema</h2>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @{
+                IList<SelectListItem> listaSchema = new List<SelectListItem>
+                {
+                    new SelectListItem
+                    {
+                        Text = "UNIC",
+                        Value = "UNIC"
+                    },
+                    new SelectListItem
+                    {
+                        Text = "SEA",
+                        Value = "SEA"
+                    },
+                    new SelectListItem
+                    {
+                        Text = "CENTRALBOLETO",
+                        Value = "CENTRALBOLETO"
+                    }
+                };
+            }
+          
+            @Html.DropDownList("NameSchema", new List<SelectListItem>(listaSchema), "--Selecione--", new { @class = "form-control" })
+        </div>
+    </div>
+    <h2>NameSpace do Projeto</h2>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            @Html.TextBox("NameSpace", null, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <h2>Sub Diretórios</h2>
+    <div id="SubDiretorios"></div>
+
+
+    <h2>Tabela(s)</h2>
+    <div class="form-group">
+        <div class="col-md-10 col-sm-6 col-xs-12">
+            @Html.DropDownListFor(model => model.Nome, new List<SelectListItem>(ViewBag.ListaTabela), "--Selecione--", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <hr />
+    <div class="form-group">
+        <div class="col-md-10 col-sm-6 col-xs-12">
+            <button type="button" class="btn btn-primary" id="btGerarClasse">
+                <i class="fa fa-floppy-o" aria-hidden="true"></i> Gerar Classe
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<br />
+<div class="panel panel-primary">
+    <!-- Default panel contents -->
+    <div class="panel-heading">LISTA DE CLASSE</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="x_content">
+
+                <div id="Tabelas"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<div class="panel panel-success">
+    <!-- Default panel contents -->
+    <div class="panel-heading">CLASSE GERADA</div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="x_content">
+                <div id="ClasseGerada"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
